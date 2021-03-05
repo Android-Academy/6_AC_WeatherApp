@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_sub_header"
+            android:title="@string/app_name">
+            <menu>
+                <item
+                    android:id="@+id/home"
+                    android:checked="true"
+                    android:icon="@drawable/ic_current_weather"
+                    android:title="@string/current_weather" />
+
+                <item
+                    android:id="@+id/daily_weather"
+
+                    android:icon="@drawable/ic_forecast"
+                    android:title="@string/daily_forecast" />
+                <item
+                    android:id="@+id/hourly_weather"
+
+                    android:icon="@drawable/ic_hourly_weather"
+                    android:title="@string/hourly_forecast" />
+                <item
+                    android:id="@+id/help"
+
+                    android:icon="@drawable/ic_help"
+                    android:title="@string/help_amp_support" />
+            </menu>
+        </item>
+
+        <item
+            android:id="@+id/navigation_sub_header_1"
+            android:title="@string/settings">
+            <menu>
+
+                <item
+                    android:id="@+id/settings"
+
+                    android:icon="@drawable/ic_settings"
+                    android:title="@string/settings" />
+
+                <item
+                    android:id="@+id/changelog"
+
+                    android:icon="@drawable/ic_changelog"
+                    android:title="@string/changelog" />
+
+                <item
+                    android:id="@+id/about"
+
+                    android:icon="@drawable/ic_about"
+                    android:title="@string/about" />
+
+            </menu>
+        </item>
+    </group>
+</menu>
