@@ -52,7 +52,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.vullnetlimani.weatherapp.Database.DatabaseHelper;
 import com.vullnetlimani.weatherapp.Database.LoadDatabase;
 import com.vullnetlimani.weatherapp.Helper.AsyncHelper;
-import com.vullnetlimani.weatherapp.Helper.Constants;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.GPSTracker;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
@@ -496,7 +496,7 @@ public class MainActivity extends BaseActivity {
         error_scrollView = findViewById(R.id.error);
 
         todayStat_ImageView = findViewById(R.id.todayStat_ImageView);
-        tomorrowStat_ImageView = findViewById(R.id.forecast_ImageView);
+        tomorrowStat_ImageView = findViewById(R.id.detail_main_icon);
 
         actual_weather = findViewById(R.id.actual_weather);
         current_time = findViewById(R.id.current_time);
@@ -507,9 +507,9 @@ public class MainActivity extends BaseActivity {
         wind_speed = findViewById(R.id.wind_speed);
         pressure = findViewById(R.id.pressure);
         humidity = findViewById(R.id.humidity);
-        tomorrowStatTextView = findViewById(R.id.forecast_TimeTextView);
-        tomorrow_desc = findViewById(R.id.forecast_desc_TextView);
-        tomorrow_temp = findViewById(R.id.forecast_temp_TextView);
+        tomorrowStatTextView = findViewById(R.id.detail_city_text);
+        tomorrow_desc = findViewById(R.id.detail_description);
+        tomorrow_temp = findViewById(R.id.detail_main_temp);
 
         error_code_textView = findViewById(R.id.error_code_textView);
 

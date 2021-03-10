@@ -3,9 +3,16 @@ package com.vullnetlimani.weatherapp.Activity;
 import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.ChangeBounds;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,10 +21,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.vullnetlimani.weatherapp.Helper.AsyncHelper;
-import com.vullnetlimani.weatherapp.Helper.Constants;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
+import com.vullnetlimani.weatherapp.Utils.Helper;
 import com.vullnetlimani.weatherapp.adapters.ForecastOverviewAdapter;
 
 import org.json.JSONArray;
@@ -42,6 +50,8 @@ public class DailyForecastActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setExitTransition(null);
+        getWindow().setEnterTransition(null);
         setContentView(R.layout.activity_daily_forecast);
 
         setupToolbar(getString(R.string.seven_days_weather));
@@ -93,6 +103,7 @@ public class DailyForecastActivity extends BaseActivity {
         recyclerViewDays.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ForecastOverviewAdapter(this, items);
         recyclerViewDays.setAdapter(adapter);
+
     }
 
     private void downloadJSON() {

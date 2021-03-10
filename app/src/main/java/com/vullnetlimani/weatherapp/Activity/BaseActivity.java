@@ -25,10 +25,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.vullnetlimani.weatherapp.BuildConfig;
-import com.vullnetlimani.weatherapp.Helper.Constants;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
+import com.vullnetlimani.weatherapp.Utils.Helper;
 
 public class BaseActivity extends AppCompatActivity {
 

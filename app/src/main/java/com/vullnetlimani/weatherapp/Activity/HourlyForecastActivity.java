@@ -12,7 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.vullnetlimani.weatherapp.Helper.AsyncHelper;
-import com.vullnetlimani.weatherapp.Helper.Constants;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
@@ -39,6 +39,8 @@ public class HourlyForecastActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setExitTransition(null);
+        getWindow().setEnterTransition(null);
         setContentView(R.layout.activity_hourly_forecast);
 
         setupToolbar(getString(R.string.hourly_weather));

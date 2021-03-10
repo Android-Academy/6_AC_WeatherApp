@@ -1,9 +1,13 @@
-package com.vullnetlimani.weatherapp.Helper;
+package com.vullnetlimani.weatherapp.Utils;
 
 public class Constants {
 
 
     public static final String Language_EN = "en";
+    public static final String DETAIL_VIEW_KEY = "DetailView";
+    public static final String DETAIL_COMING_ACT_KEY = "DetailComingActKey";
+    public static final String DAILY_FORECAST = "DailyForecast";
+    public static final String HOURLY_FORECAST = "HourlyForecast";
     public static String list_unit_code_key="list_unit_code_key";
 
     public static final String today_card_current_color_key = "today_card_current_color_key";

@@ -71,5 +71,13 @@
     <string name="Sunset">Sunset: %s</string>
     <string name="seven_days_weather">7-Day Forecast</string>
     <string name="hourly_weather">Hourly Weather</string>
+    <string name="sunrise_only">Sunrise</string>
+    <string name="sunset_Only">Sunset</string>
+
+    <string name="transition_card_icon">detail_icon_transition</string>
+    <string name="transition_temp">detail_temp_transition</string>
+    <string name="transition_feels_like">detail_feels_like_transition</string>
+    <string name="transition_sunrise_layout">detail_sunrise_transition</string>
+    <string name="transition_sunset_layout">detail_sunset_transition</string>
 
 </resources>

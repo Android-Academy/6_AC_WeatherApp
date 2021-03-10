@@ -19,7 +19,7 @@
         android:padding="10dp">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/info_linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/forecast_TimeTextView"
+                android:id="@+id/detail_city_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -46,27 +46,28 @@
                 android:layout_gravity="start"
                 android:textColor="@color/body_text_1_inverse"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintStart_toStartOf="@+id/forecast_TimeTextView"
-                app:layout_constraintTop_toBottomOf="@+id/forecast_TimeTextView"
+                app:layout_constraintStart_toStartOf="@+id/detail_city_text"
+                app:layout_constraintTop_toBottomOf="@+id/detail_city_text"
                 tools:text="Fri, Mar 05" />
 
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/forecast_ImageView"
+            android:id="@+id/detail_main_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:maxHeight="100dp"
             android:scaleType="fitCenter"
+            android:transitionName="@string/transition_card_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout"
+            app:layout_constraintEnd_toStartOf="@+id/temp_linearLayout"
+            app:layout_constraintStart_toEndOf="@+id/info_linearLayout"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_clear_sky_day" />
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/temp_linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -75,30 +76,34 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/forecast_temp_TextView"
+                android:id="@+id/detail_main_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+
                 android:textColor="@color/body_text_2_inverse"
                 android:textSize="@dimen/text_size_xxlarge"
                 android:textStyle="bold"
+                android:transitionName="@string/transition_temp"
                 tools:text="22°C" />
 
             <TextView
-                android:id="@+id/forecast_feels_like"
+                android:id="@+id/detail_feels_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:textColor="@color/body_text_2_inverse"
                 android:textSize="@dimen/text_size_medium"
+                android:transitionName="@string/transition_feels_like"
                 tools:text="Feels like: 20°C" />
 
             <TextView
-                android:id="@+id/forecast_desc_TextView"
+                android:id="@+id/detail_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:textColor="@color/body_text_1_inverse"
+
                 android:textSize="@dimen/text_size_medium"
                 tools:text="Description" />
         </LinearLayout>

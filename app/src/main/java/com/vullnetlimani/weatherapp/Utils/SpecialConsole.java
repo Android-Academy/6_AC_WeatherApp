@@ -1,4 +1,4 @@
-package com.vullnetlimani.weatherapp.Helper;
+package com.vullnetlimani.weatherapp.Utils;
 
 import android.util.Log;
 

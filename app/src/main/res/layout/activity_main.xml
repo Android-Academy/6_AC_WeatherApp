@@ -249,7 +249,7 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:id="@+id/forecast_ImageView"
+                                    android:id="@+id/detail_main_icon"
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_marginStart="10dp"
@@ -261,7 +261,7 @@
                                     app:srcCompat="@drawable/ic_clear_sky_day" />
 
                                 <TextView
-                                    android:id="@+id/forecast_TimeTextView"
+                                    android:id="@+id/detail_city_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
@@ -272,11 +272,11 @@
                                     android:textColor="@color/white"
                                     android:textSize="25sp"
                                     android:textStyle="bold"
-                                    app:layout_constraintStart_toEndOf="@+id/forecast_ImageView"
+                                    app:layout_constraintStart_toEndOf="@+id/detail_main_icon"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <TextView
-                                    android:id="@+id/forecast_desc_TextView"
+                                    android:id="@+id/detail_description"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingLeft="8dp"
@@ -284,12 +284,12 @@
                                     android:paddingBottom="4dp"
                                     android:textColor="@color/white"
                                     android:textSize="18sp"
-                                    app:layout_constraintStart_toEndOf="@+id/forecast_ImageView"
-                                    app:layout_constraintTop_toBottomOf="@+id/forecast_TimeTextView"
+                                    app:layout_constraintStart_toEndOf="@+id/detail_main_icon"
+                                    app:layout_constraintTop_toBottomOf="@+id/detail_city_text"
                                     tools:text="Description" />
 
                                 <TextView
-                                    android:id="@+id/forecast_temp_TextView"
+                                    android:id="@+id/detail_main_temp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
@@ -300,7 +300,7 @@
                                     android:textSize="@dimen/text_size_xlarge"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/forecast_TimeTextView"
+                                    app:layout_constraintStart_toEndOf="@+id/detail_city_text"
                                     app:layout_constraintTop_toTopOf="parent"
                                     tools:text="22°C" />
 
@@ -312,7 +312,7 @@
                                     android:orientation="vertical"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/forecast_ImageView">
+                                    app:layout_constraintTop_toBottomOf="@+id/detail_main_icon">
 
                                     <Button
                                         android:id="@+id/view_more_btn"

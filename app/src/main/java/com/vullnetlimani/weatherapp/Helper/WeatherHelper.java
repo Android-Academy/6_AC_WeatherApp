@@ -1,5 +1,6 @@
 package com.vullnetlimani.weatherapp.Helper;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.vullnetlimani.weatherapp.R;
@@ -9,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class WeatherHelper implements Serializable {
 
@@ -57,7 +60,7 @@ public class WeatherHelper implements Serializable {
     private Double population;
     private long time;
 
-    public String  getLatitude() {
+    public String getLatitude() {
         return String.valueOf(latitude);
     }
 
@@ -465,5 +468,11 @@ public class WeatherHelper implements Serializable {
             Log.e(LOG_TAG, e.toString());
         }
 
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public String convertTime(long yourLongTime, String yourFormat) {
+        Date time = new Date(yourLongTime * 1000);
+        return new SimpleDateFormat(yourFormat).format(time);
     }
 }
