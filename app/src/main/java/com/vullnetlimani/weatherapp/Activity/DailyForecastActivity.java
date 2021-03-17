@@ -2,30 +2,24 @@ package com.vullnetlimani.weatherapp.Activity;
 
 import android.animation.Animator;
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.transition.AutoTransition;
-import android.transition.ChangeBounds;
-import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 
-import androidx.core.app.ActivityCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.color.MaterialColors;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.vullnetlimani.weatherapp.Helper.AsyncHelper;
-import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
-import com.vullnetlimani.weatherapp.Utils.Helper;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.adapters.ForecastOverviewAdapter;
 
 import org.json.JSONArray;
@@ -41,9 +35,9 @@ public class DailyForecastActivity extends BaseActivity {
     public static final String LOG_TAG = "DailyForecastLog";
     public ArrayList<WeatherHelper> items;
     private String latitude, longitude, unit, language;
+    private int days;
     private WeatherHelper mWeatherHelper;
     private ForecastOverviewAdapter adapter;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView recyclerViewDays;
     private NestedScrollView error_layout;
 
@@ -52,16 +46,20 @@ public class DailyForecastActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getWindow().setExitTransition(null);
         getWindow().setEnterTransition(null);
+
+        setupTheme();
+        setTheme(Theme);
+
         setContentView(R.layout.activity_daily_forecast);
 
         setupToolbar(getString(R.string.seven_days_weather));
         setToolbarBackIcon();
 
         mSwipeRefreshLayout = findViewById(R.id.mSwipeRefreshLayout);
+        setupSwipe();
+
         recyclerViewDays = findViewById(R.id.recyclerViewDays);
         error_layout = findViewById(R.id.error);
-
-        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary));
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -111,6 +109,7 @@ public class DailyForecastActivity extends BaseActivity {
         latitude = MySharedPreferences.getNormalPref(this, Constants.latitude_pref_key, "0");
         longitude = MySharedPreferences.getNormalPref(this, Constants.longitude_pref_key, "0");
         unit = MySharedPreferences.getNormalPref(this, Constants.list_unit_code_key, Constants.UNI_CODE_DEFAULT);
+        days = Integer.parseInt(MySharedPreferences.getNormalPref(this, Constants.list_days_key, Constants.WEATHER_SHOWN_DAYS_DEFAULT));
         language = Constants.Language_EN;
 
         AsyncHttpClient client = new AsyncHttpClient();
@@ -155,7 +154,7 @@ public class DailyForecastActivity extends BaseActivity {
 
             Log.d(LOG_TAG, "Day count - " + day_list_array.length());
 
-            for (int i = 1; i < day_list_array.length(); i++) {
+            for (int i = 1; i < day_list_array.length() && i < days; i++) {
 
                 mWeatherHelper = new WeatherHelper();
 

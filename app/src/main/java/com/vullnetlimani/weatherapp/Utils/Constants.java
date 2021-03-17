@@ -8,7 +8,9 @@ public class Constants {
     public static final String DETAIL_COMING_ACT_KEY = "DetailComingActKey";
     public static final String DAILY_FORECAST = "DailyForecast";
     public static final String HOURLY_FORECAST = "HourlyForecast";
+    public static final String THEME_DEFAULT_VALUE = "3";
     public static String list_unit_code_key="list_unit_code_key";
+    public static final String list_theme_key = "list_theme_key";
 
     public static final String today_card_current_color_key = "today_card_current_color_key";
     public static final String tomorrow_card_current_color_key = "tomorrow_card_current_color_key";
@@ -22,5 +24,9 @@ public class Constants {
     public static final String LOCATION_CITY_DEFAULT = "Kichevo";
     public static final String UNI_CODE_DEFAULT = "Metric";
     public static final String WEATHER_TOMORROW_TIME = "8";
+    public static final String WEATHER_SHOWN_DAYS_DEFAULT = "8";
 
+    public static final String pref_about_key="pref_about_key";
+    public static final String pref_help_key="pref_help_key";
+    public static String list_days_key="list_days_key";
 }

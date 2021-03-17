@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vullnetlimani.weatherapp.Activity.DailyForecastActivity;
 import com.vullnetlimani.weatherapp.Activity.DetailActivity;
-import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 
 import java.util.ArrayList;
 

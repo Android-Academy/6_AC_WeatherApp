@@ -53,9 +53,10 @@ public class DetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
 
-        Helper.makeCustomTransition(DetailActivity.this, R.id.mToolbar);
+        setupTheme();
+        setTheme(Theme);
+        setContentView(R.layout.activity_detail);
 
         setupToolbar("");
         setToolbarBackIcon();

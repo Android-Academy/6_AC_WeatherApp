@@ -2,20 +2,65 @@
 
     <style name="Theme.WeatherApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="android:centerColor">@color/accent</item>
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryVariant">@color/blue_primary_dark</item>
+        <item name="colorAccent">@color/blue_accent</item>
+
+        <item name="cardColor">?attr/colorPrimary</item>
+        <item name="cardBottomColor">@color/cardBottomColorLight</item>
+        <item name="cardTextBottomColor">@color/secondary_text</item>
+
+        <item name="backgroundViewColor">@color/drawerColor</item>
+
+        <item name="bottomBarColor">?attr/colorPrimary</item>
+        <item name="bottomBarIcon">?attr/colorPrimaryVariant</item>
+        <item name="bottomBarText">?attr/colorPrimaryVariant</item>
+
+        <item name="floatButtonColor">@color/blue_accent</item>
+        <item name="floatButtonRippleColor">@color/white</item>
+
+        <item name="searchToolbarColor">?attr/colorPrimary</item>
+        <item name="insideSearchToolbarColor">@color/white</item>
+        <item name="searchToolbarIconColor">@color/gray</item>
+        <item name="searchToolbarText">@color/dk_gray</item>
+        <item name="suggestionAdapterBackground">@color/white</item>
+
+        <item name="navigationHeaderColor">?attr/colorPrimary</item>
+        <item name="navigationBackgroundColor">@color/white</item>
+        <item name="navigationHeaderTextColor">@color/white</item>
+
+        <item name="navigationItemColor">@color/dk_gray</item>
+        <item name="navigationSecItemColor">?attr/colorPrimary</item>
+        <item name="navigationCategoryColor">@color/blue_accent</item>
+
+        <item name="errorTitleColor">?attr/colorPrimary</item>
+        <item name="errorSubTitleError">@color/gray</item>
+
+        <item name="customTitleColor">@color/dk_gray</item>
+        <item name="customSubTitleColor">@color/gray</item>
+
+        <item name="settingsBackground">@color/white</item>
+        <item name="android:textColorSecondary">@color/gray</item>
+        <item name="preferenceTheme">@style/PrefThemeLight</item>
+        <item name="android:listDivider">@null</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="swipeRefreshProgressColor">?attr/colorPrimary</item>
+        <item name="swipeRefreshBackgroundColor">@color/white</item>
+        <item name="aboutItemColor">?attr/colorPrimary</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
-
-        <!-- enable window content transitions -->
+        <item name="android:navigationBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">?attr/backgroundViewColor</item>
 
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowContentTransitions">true</item>
 
+        <!-- specify enter and exit transitions -->
+        <item name="android:windowEnterTransition">@transition/transition_template</item>
+        <item name="android:windowExitTransition">@transition/transition_template</item>
         <!-- specify shared element transitions -->
         <item name="android:windowSharedElementEnterTransition">
             @transition/change_transform
@@ -26,25 +71,147 @@
 
     </style>
 
-    <style name="MyButton" parent="Theme.WeatherApp">
-        <item name="colorControlHighlight">@color/accent</item>
+    <style name="GreenTheme" parent="Theme.WeatherApp">
+
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryVariant">@color/green_primary_dark</item>
+        <item name="colorAccent">@color/green_accent</item>
+
+        <item name="floatButtonColor">@color/green_accent</item>
+
+        <item name="navigationCategoryColor">@color/green_accent</item>
+
     </style>
 
-    <style name="NavigationView" parent="Theme.WeatherApp">
-        <item name="android:listDivider">@color/white</item>
-        <item name="android:textColorSecondary">@color/secondary_text</item>
+    <style name="RedTheme" parent="Theme.WeatherApp">
+
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryVariant">@color/red_primary_dark</item>
+        <item name="colorAccent">@color/red_accent</item>
+
+        <item name="floatButtonColor">@color/red_accent</item>
+        <item name="navigationCategoryColor">@color/red_accent</item>
+
     </style>
 
-    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">@color/white</item>
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:background">@color/primary</item>
+    <style name="DarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorPrimaryVariant">@color/dark_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <item name="cardColor">@color/dark_primary</item>
+        <item name="cardBottomColor">@color/cardBottomColorDark</item>
+        <item name="cardTextBottomColor">@color/white</item>
+
+        <item name="backgroundViewColor">@color/drawerColorDark</item>
+
+        <item name="bottomBarColor">@color/dark_primary</item>
+        <item name="bottomBarIcon">@color/gray</item>
+        <item name="bottomBarText">@color/gray</item>
+
+        <item name="floatButtonColor">@color/dark_accent</item>
+        <item name="floatButtonRippleColor">@color/black</item>
+
+        <item name="searchToolbarColor">@color/dark_primary</item>
+        <item name="insideSearchToolbarColor">@color/dark_primary_dark</item>
+        <item name="searchToolbarIconColor">@color/white</item>
+        <item name="searchToolbarText">@color/white</item>
+        <item name="suggestionAdapterBackground">@color/dark_primary</item>
+
+        <item name="navigationHeaderColor">@color/dark_accent</item>
+        <item name="navigationBackgroundColor">@color/dark_primary_dark</item>
+        <item name="navigationHeaderTextColor">@color/black</item>
+
+        <item name="navigationItemColor">@color/white</item>
+        <item name="navigationSecItemColor">@color/dark_accent</item>
+        <item name="navigationCategoryColor">@color/dark_accent</item>
+
+        <item name="errorTitleColor">@color/dark_accent</item>
+        <item name="errorSubTitleError">@color/white</item>
+
+        <item name="customTitleColor">@color/white</item>
+        <item name="customSubTitleColor">@color/white</item>
+
+        <item name="settingsBackground">@color/dark_primary_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:listDivider">@null</item>
+        <item name="preferenceTheme">@style/PrefThemeDark</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="swipeRefreshProgressColor">@color/black</item>
+        <item name="swipeRefreshBackgroundColor">@color/dark_accent</item>
+        <item name="aboutItemColor">@color/dark_accent</item>
+
+    </style>
+
+    <style name="NavigationViewTheme" parent="@style/Widget.Design.NavigationView">
+        <item name="android:textColorSecondary">?attr/navigationCategoryColor</item>
+        <item name="android:windowBackground">?attr/navigationBackgroundColor</item>
+    </style>
+
+    <style name="PrefThemeDark" parent="@style/PreferenceThemeOverlay">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="PrefThemeLight" parent="@style/PreferenceThemeOverlay">
+        <item name="android:textColor">@color/dk_gray</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/TitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyle</item>
+    </style>
+
+    <style name="TitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">?attr/customTitleColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="BodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">?attr/customSubTitleColor</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="rippleColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="rippleColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="NeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="rippleColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="SplashScreenTheme" parent="Theme.WeatherApp">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">?attr/colorPrimary</item>
     </style>
 
     <style name="MyTabText" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">?attr/bottomBarText</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ThemeOverlay.6_AC_WeatherApp.AppWidgetContainer" parent="">
+        <item name="appWidgetBackgroundColor">@color/light_blue_600</item>
+        <item name="appWidgetTextColor">@color/light_blue_50</item>
     </style>
 
 </resources>

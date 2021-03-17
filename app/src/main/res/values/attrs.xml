@@ -1,0 +1,49 @@
+<resources>
+
+    <declare-styleable name="AppWidgetAttrs">
+        <attr name="appWidgetBackgroundColor" format="color" />
+        <attr name="appWidgetTextColor" format="color" />
+    </declare-styleable>
+
+    <attr name="backgroundViewColor" format="reference|color" />
+    <attr name="customTitleColor" format="reference|color" />
+    <attr name="customSubTitleColor" format="reference|color" />
+
+    <attr name="bottomBarColor" format="reference|color" />
+
+    <attr name="cardColor" format="reference|color" />
+    <attr name="cardBottomColor" format="reference|color" />
+
+    <attr name="cardTextBottomColor" format="reference|color" />
+    <attr name="cardTextColor" format="reference|color" />
+
+    <attr name="bottomBarIcon" format="reference|color" />
+    <attr name="bottomBarText" format="reference|color" />
+
+    <attr name="floatButtonColor" format="reference|color" />
+    <attr name="floatButtonRippleColor" format="reference|color" />
+
+    <attr name="searchToolbarColor" format="reference|color" />
+    <attr name="insideSearchToolbarColor" format="reference|color" />
+    <attr name="searchToolbarIconColor" format="reference|color" />
+    <attr name="searchToolbarText" format="reference|color" />
+    <attr name="suggestionAdapterBackground" format="reference|color" />
+
+    <attr name="navigationHeaderColor" format="reference|color" />
+    <attr name="navigationBackgroundColor" format="reference|color" />
+    <attr name="navigationHeaderTextColor" format="reference|color" />
+
+    <attr name="navigationItemColor" format="reference|color" />
+    <attr name="navigationSecItemColor" format="reference|color" />
+    <attr name="navigationCategoryColor" format="reference|color" />
+
+    <attr name="errorTitleColor" format="reference|color" />
+    <attr name="errorSubTitleError" format="reference|color" />
+
+    <attr name="swipeRefreshProgressColor" format="reference|color" />
+    <attr name="swipeRefreshBackgroundColor" format="reference|color" />
+
+    <attr name="settingsBackground" format="reference|color" />
+    <attr name="aboutItemColor" format="reference|color" />
+
+</resources>

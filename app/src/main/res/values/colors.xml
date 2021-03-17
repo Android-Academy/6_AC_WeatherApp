@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primary">#2196F3</color>
-    <color name="primary_dark">#1976D2</color>
-    <color name="primary_light">#BBDEFB</color>
-    <color name="accent">#FF4081</color>
-    <color name="primary_text">#212121</color>
+    <color name="blue_primary">#2196F3</color>
+    <color name="blue_primary_dark">#1976D2</color>
+    <color name="blue_accent">#FF4081</color>
+
+    <color name="green_primary">#4CAF50</color>
+    <color name="green_primary_dark">#368039</color>
+    <color name="green_accent">#FF5722</color>
+
+    <color name="red_primary">#CD1B0E</color>
+    <color name="red_primary_dark">#851108</color>
+    <color name="red_accent">#009688</color>
+
+    <color name="dark_primary">#424242</color>
+    <color name="dark_primary_dark">#212121</color>
+    <color name="dark_accent">#F48FB1</color>
+
+    <color name="drawerColor">#E8E8E8</color>
+    <color name="drawerColorDark">@color/dark_primary_dark</color>
+
+    <color name="cardBottomColorLight">#FFFFFF</color>
+    <color name="cardBottomColorDark">#616161</color>
+
     <color name="secondary_text">#757575</color>
-    <color name="icons">#FFFFFF</color>
-    <color name="divider">#BDBDBD</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <color name="drawer_color">#E8E8E8</color>
-    <color name="error_bg_color">#E8E8E8</color>
+    <color name="gray">#757575</color>
+    <color name="dk_gray">#494949</color>
 
     <color name="sunny_weather">#FFB300</color>
     <color name="rainy_weather">#78909C</color>
     <color name="bad_weather">#455A64</color>
-    <color name="snow_weather">#a6d9ff</color>
+    <color name="snow_weather">#093281</color>
     <color name="warning_Weather">#C62846</color>
-    <color name="clear_sky_color">#7cc7d9</color>
-    <color name="good_weather">#2196f3</color>
+    <color name="clear_sky_color">#0183ff</color>
+    <color name="good_weather">#387ac4</color>
 
     <color name="body_text_1_inverse">#deffffff</color>
-    <color name="body_text_2_inverse">#8affffff</color>
+    <color name="body_text_2_inverse">#ffffff</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_600">#FF039BE5</color>
 
+    <color name="facebookColor">#3b5998</color>
+    <color name="instagramColor">#e1306c</color>
+    <color name="gitHubColor">#4078c0</color>
+    <color name="emailColor">#FFC107</color>
+    <color name="websiteColor">#013678</color>
+    <color name="youtubeColor">#ff0000</color>
+    <color name="playStoreColor">#34a853</color>
 </resources>

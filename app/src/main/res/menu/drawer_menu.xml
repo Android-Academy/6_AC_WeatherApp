@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/navigation_sub_header"
-            android:title="@string/app_name">
+        <item android:title="@string/app_name">
             <menu>
                 <item
                     android:id="@+id/home"
@@ -25,13 +23,11 @@
                     android:id="@+id/help"
 
                     android:icon="@drawable/ic_help"
-                    android:title="@string/help_amp_support" />
+                    android:title="@string/help_anp_support" />
             </menu>
         </item>
 
-        <item
-            android:id="@+id/navigation_sub_header_1"
-            android:title="@string/settings">
+        <item android:title="@string/settings">
             <menu>
 
                 <item

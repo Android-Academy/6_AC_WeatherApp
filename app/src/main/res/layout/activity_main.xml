@@ -5,7 +5,6 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/drawer_color"
     android:fitsSystemWindows="true"
     tools:context=".Activity.MainActivity">
 
@@ -54,7 +53,7 @@
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="8dp"
                             android:elevation="8dp"
-                            app:cardBackgroundColor="@color/primary"
+                            app:cardBackgroundColor="?attr/cardColor"
                             app:cardCornerRadius="5dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,7 +74,7 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <TextView
-                                    android:id="@+id/current_time"
+                                    android:id="@+id/current_date"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
@@ -153,7 +152,7 @@
                                     android:id="@+id/detail_linear_layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/white"
+                                    android:background="?attr/cardBottomColor"
                                     android:orientation="vertical"
                                     android:paddingStart="5dp"
                                     android:paddingTop="8dp"
@@ -164,14 +163,13 @@
                                     app:layout_constraintStart_toStartOf="parent">
 
                                     <TextView
-                                        android:id="@+id/windspeedTitle"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
                                         android:layout_marginBottom="1dp"
                                         android:text="@string/wind_speed"
-                                        android:textColor="@color/secondary_text" />
+                                        android:textColor="?attr/cardTextBottomColor" />
 
 
                                     <TextView
@@ -181,18 +179,17 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
                                         android:layout_marginBottom="4dp"
-                                        android:textColor="@color/secondary_text"
+                                        android:textColor="?attr/cardTextBottomColor"
                                         android:textSize="25sp" />
 
                                     <TextView
-                                        android:id="@+id/pressureTitle"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
                                         android:layout_marginBottom="1dp"
                                         android:text="@string/pressure"
-                                        android:textColor="@color/secondary_text" />
+                                        android:textColor="?attr/cardTextBottomColor" />
 
 
                                     <TextView
@@ -202,18 +199,17 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
                                         android:layout_marginBottom="4dp"
-                                        android:textColor="@color/secondary_text"
+                                        android:textColor="?attr/cardTextBottomColor"
                                         android:textSize="25sp" />
 
                                     <TextView
-                                        android:id="@+id/humidityTitle"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
                                         android:layout_marginBottom="1dp"
                                         android:text="@string/humidity"
-                                        android:textColor="@color/secondary_text" />
+                                        android:textColor="?attr/cardTextBottomColor" />
 
 
                                     <TextView
@@ -223,7 +219,7 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
                                         android:layout_marginBottom="4dp"
-                                        android:textColor="@color/secondary_text"
+                                        android:textColor="?attr/cardTextBottomColor"
                                         android:textSize="25sp" />
 
                                 </LinearLayout>
@@ -241,7 +237,7 @@
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="8dp"
                             android:elevation="8dp"
-                            app:cardBackgroundColor="@color/primary"
+                            app:cardBackgroundColor="?attr/cardColor"
                             app:cardCornerRadius="5dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -308,7 +304,7 @@
                                     android:id="@+id/tomorrow_detail_linear_layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/white"
+                                    android:background="?attr/cardBottomColor"
                                     android:orientation="vertical"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -316,13 +312,13 @@
 
                                     <Button
                                         android:id="@+id/view_more_btn"
-                                        style="@style/Widget.AppCompat.Button.Borderless"
+                                        style="@style/Widget.MaterialComponents.Button.TextButton"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
                                         android:onClick="launchDetails"
                                         android:text="@string/show_more"
-                                        android:textColor="@color/black"
-                                        android:theme="@style/MyButton" />
+                                        android:textColor="?attr/cardTextBottomColor" />
 
                                 </LinearLayout>
 
@@ -340,12 +336,12 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:src="@drawable/ic_auto_locate"
-                    app:backgroundTint="@color/primary"
+                    app:backgroundTint="?attr/floatButtonColor"
                     app:fabSize="normal"
                     app:layout_constraintBottom_toTopOf="@+id/bottomTabLayout"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:rippleColor="@color/white"
-                    app:tint="@color/white" />
+                    app:rippleColor="?attr/floatButtonRippleColor"
+                    app:tint="?attr/floatButtonRippleColor" />
 
                 <androidx.core.widget.NestedScrollView
                     android:id="@+id/error"
@@ -361,8 +357,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/error_bg_color">
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/error_imageView"
@@ -382,7 +377,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/error"
                             android:textAlignment="center"
-                            android:textColor="@color/primary"
+                            android:textColor="?attr/errorTitleColor"
                             android:textSize="25sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -395,7 +390,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/an_error_occurred"
                             android:textAlignment="center"
-                            android:textColor="@color/secondary_text"
+                            android:textColor="?attr/errorSubTitleError"
                             android:textSize="20sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -407,7 +402,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/error_status_code_unknown"
                             android:textAlignment="center"
-                            android:textColor="@color/secondary_text"
+                            android:textColor="?attr/errorSubTitleError"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -422,6 +417,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:background="?attr/bottomBarColor"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:tabIndicatorHeight="0dp"
                     app:tabInlineLabel="true"
@@ -439,12 +435,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:theme="@style/NavigationView"
+        android:theme="@style/NavigationViewTheme"
         app:headerLayout="@layout/drawer_header_layout"
         app:itemBackground="@android:color/transparent"
         app:itemIconTint="@drawable/drawer_item"
         app:itemTextColor="@drawable/drawer_item"
         app:menu="@menu/drawer_menu" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

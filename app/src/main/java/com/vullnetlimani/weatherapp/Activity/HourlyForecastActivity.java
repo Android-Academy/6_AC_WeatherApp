@@ -33,7 +33,6 @@ public class HourlyForecastActivity extends BaseActivity {
     private String latitude, longitude, unit, language;
     private WeatherHelper mWeatherHelper;
     private ForecastOverviewAdapter adapter;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView recyclerViewDays;
 
     @Override
@@ -41,15 +40,19 @@ public class HourlyForecastActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getWindow().setExitTransition(null);
         getWindow().setEnterTransition(null);
+
+        setupTheme();
+        setTheme(Theme);
+
         setContentView(R.layout.activity_hourly_forecast);
 
         setupToolbar(getString(R.string.hourly_weather));
         setToolbarBackIcon();
 
         mSwipeRefreshLayout = findViewById(R.id.mSwipeRefreshLayout);
-        recyclerViewDays = findViewById(R.id.recyclerViewDays);
+        setupSwipe();
 
-        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary));
+        recyclerViewDays = findViewById(R.id.recyclerViewDays);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

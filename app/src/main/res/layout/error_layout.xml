@@ -1,8 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/error_bg_color">
+    android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/error"
@@ -38,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/error"
                 android:textAlignment="center"
-                android:textColor="@color/primary"
+                android:textColor="?attr/errorTitleColor"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/an_error_occurred"
                 android:textAlignment="center"
-                android:textColor="@color/secondary_text"
+                android:textColor="?attr/errorSubTitleError"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/error_status_code_unknown"
                 android:textAlignment="center"
-                android:textColor="@color/secondary_text"
+                android:textColor="?attr/errorSubTitleError"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

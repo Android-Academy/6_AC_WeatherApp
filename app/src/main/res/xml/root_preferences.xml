@@ -1,0 +1,65 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/main">
+
+        <EditTextPreference
+            android:defaultValue="@string/default_city"
+            android:inputType="text"
+            app:key="edit_text_location_key"
+            app:title="@string/city" />
+
+        <ListPreference
+            app:defaultValue="MK"
+            app:entries="@array/country"
+            app:entryValues="@array/countryCodes"
+            app:key="list_country_key"
+
+            app:title="@string/country" />
+
+        <ListPreference
+            app:defaultValue="@string/metric"
+            app:entries="@array/unitNames"
+            app:entryValues="@array/unitcode"
+            app:key="list_unit_code_key"
+            app:title="@string/units" />
+
+        <ListPreference
+            app:defaultValue="8"
+            app:entries="@array/daycount"
+            app:entryValues="@array/daycountValues"
+            app:key="list_days_key"
+
+            app:title="@string/days" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="switch_double_bacK_key"
+            app:summary="@string/double_bak_exit"
+            app:title="@string/double_back_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/theme">
+
+        <ListPreference
+            app:defaultValue="3"
+            app:entries="@array/themes"
+            app:entryValues="@array/themeValues"
+            app:key="list_theme_key"
+
+            app:title="@string/chose_theme" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/app">
+
+        <Preference
+            app:key="pref_about_key"
+            app:title="@string/about" />
+        <Preference
+            app:key="pref_help_key"
+            app:title="@string/help_anp_support" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

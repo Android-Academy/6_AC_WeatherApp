@@ -14,22 +14,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.vullnetlimani.weatherapp.BuildConfig;
-import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
-import com.vullnetlimani.weatherapp.Utils.Helper;
+import com.vullnetlimani.weatherapp.Utils.Constants;
+import com.vullnetlimani.weatherapp.about.About;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -39,10 +40,28 @@ public class BaseActivity extends AppCompatActivity {
     public WeatherHelper mWeatherHelper;
     public TabLayout bottomTabLayout;
     public Toolbar mToolbar;
+    public SwipeRefreshLayout mSwipeRefreshLayout;
+    public int Theme;
     private ConstraintLayout navigation_draw_bag;
     private ImageView nav_image;
     private TextView city_id;
-    private AlertDialog.Builder changeLogDialog;
+    private MaterialAlertDialogBuilder changeLogDialog;
+
+    public void setupTheme() {
+
+        switch (Integer.parseInt(MySharedPreferences.getNormalPref(BaseActivity.this, Constants.list_theme_key, Constants.THEME_DEFAULT_VALUE))) {
+            case 1:
+                Theme = R.style.GreenTheme;
+                break;
+            case 2:
+                Theme = R.style.RedTheme;
+                break;
+            case 4:
+                Theme = R.style.DarkTheme;
+                break;
+        }
+
+    }
 
     public void setupToolbar(String title) {
         mToolbar = findViewById(R.id.mToolbar);
@@ -54,6 +73,12 @@ public class BaseActivity extends AppCompatActivity {
         mToolbar = findViewById(R.id.mToolbar);
         setSupportActionBar(mToolbar);
     }
+
+    public void setupSwipe() {
+        mSwipeRefreshLayout.setColorSchemeColors(MaterialColors.getColor(this, R.attr.swipeRefreshProgressColor, Color.BLACK));
+        mSwipeRefreshLayout.setProgressBackgroundColorSchemeColor(MaterialColors.getColor(this, R.attr.swipeRefreshBackgroundColor, Color.BLACK));
+    }
+
 
     public void setVisibilityToolbar(boolean isVisible) {
         if (isVisible)
@@ -77,10 +102,10 @@ public class BaseActivity extends AppCompatActivity {
         bottomTabLayout.addTab(bottomTabLayout.newTab().setText(getString(R.string.metric)).setIcon(R.drawable.ic_celsius));
         bottomTabLayout.addTab(bottomTabLayout.newTab().setText(getString(R.string.imperial)).setIcon(R.drawable.ic_kelvin));
 
-        bottomTabLayout.setBackgroundColor(getResources().getColor(R.color.primary));
-        bottomTabLayout.setTabRippleColor(ColorStateList.valueOf(Color.WHITE));
+        // bottomTabLayout.setBackgroundColor(getResources().getColor(R.color.primary));
+        //   bottomTabLayout.setTabRippleColor(ColorStateList.valueOf(Color.WHITE));
 
-        bottomTabLayout.setTabTextColors(getResources().getColor(R.color.primary_dark), Color.WHITE);
+        bottomTabLayout.setTabTextColors(MaterialColors.getColor(this, R.attr.bottomBarText, Color.BLACK), Color.WHITE);
 
         bottomTabLayout.setTabIconTint(new ColorStateList(
                 new int[][]{
@@ -89,10 +114,13 @@ public class BaseActivity extends AppCompatActivity {
                 },
                 new int[]{
                         Color.WHITE,
-                        getResources().getColor(R.color.primary_dark)
+                        MaterialColors.getColor(this, R.attr.bottomBarIcon, Color.BLACK)
                 }
         ));
-
+//        TypedValue typedValue = new TypedValue();
+//        Resources.Theme theme = getTheme();
+//        theme.resolveAttribute(R.attr.bottomBarIcon, typedValue, true);
+//        int color = typedValue.data;
     }
 
     public void setupNavigationDrawer() {
@@ -111,7 +139,6 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         navigation_draw_bag = header.findViewById(R.id.navigation_draw_bag);
-        navigation_draw_bag.setBackgroundColor(getResources().getColor(R.color.primary));
 
         nav_image = header.findViewById(R.id.nav_image);
         city_id = header.findViewById(R.id.city_id);
@@ -196,7 +223,7 @@ public class BaseActivity extends AppCompatActivity {
                         mHandler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                // startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                                startActivity(new Intent(getApplicationContext(), About.class));
                             }
                         }, 250);
                         return true;

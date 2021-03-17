@@ -20,7 +20,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:elevation="8dp"
-            app:cardBackgroundColor="@color/primary"
+            app:cardBackgroundColor="?attr/colorPrimary"
             app:cardCornerRadius="5dp">
 
             <LinearLayout
@@ -118,7 +118,7 @@
                             android:layout_gravity="start"
                             android:textColor="@color/body_text_1_inverse"
                             android:textSize="@dimen/text_size_medium"
-                           tools:text="Description" />
+                            tools:text="Description" />
 
                     </LinearLayout>
 
@@ -128,7 +128,7 @@
                     android:id="@+id/detail_linear_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:background="?attr/cardBottomColor"
                     android:orientation="vertical"
                     android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -142,7 +142,6 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/sunrise_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -158,14 +157,13 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/sunriseTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="1dp"
                                 android:text="@string/sunrise_only"
-                                android:textColor="@color/secondary_text" />
+                                android:textColor="?attr/cardTextBottomColor" />
 
                             <TextView
                                 android:id="@+id/sunriseText"
@@ -174,7 +172,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="4dp"
-                                android:textColor="@color/secondary_text"
+                                android:textColor="?attr/cardTextBottomColor"
                                 android:textSize="25sp" />
                         </LinearLayout>
 
@@ -187,7 +185,6 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/sunset_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -203,14 +200,13 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/sunsetTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="1dp"
                                 android:text="@string/sunset_Only"
-                                android:textColor="@color/secondary_text" />
+                                android:textColor="?attr/cardTextBottomColor" />
 
                             <TextView
                                 android:id="@+id/sunsetText"
@@ -219,7 +215,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="4dp"
-                                android:textColor="@color/secondary_text"
+                                android:textColor="?attr/cardTextBottomColor"
                                 android:textSize="25sp" />
                         </LinearLayout>
 
@@ -231,7 +227,6 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/wind_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -247,14 +242,13 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/windTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="1dp"
                                 android:text="@string/wind_speed"
-                                android:textColor="@color/secondary_text" />
+                                android:textColor="?attr/cardTextBottomColor" />
 
                             <TextView
                                 android:id="@+id/windText"
@@ -263,7 +257,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="4dp"
-                                android:textColor="@color/secondary_text"
+                                android:textColor="?attr/cardTextBottomColor"
                                 android:textSize="25sp" />
                         </LinearLayout>
 
@@ -275,7 +269,6 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/humidity_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -291,14 +284,13 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/humidityTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="1dp"
                                 android:text="@string/humidity"
-                                android:textColor="@color/secondary_text" />
+                                android:textColor="?attr/cardTextBottomColor" />
 
                             <TextView
                                 android:id="@+id/humidityText"
@@ -307,7 +299,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="4dp"
-                                android:textColor="@color/secondary_text"
+                                android:textColor="?attr/cardTextBottomColor"
                                 android:textSize="25sp" />
                         </LinearLayout>
 
@@ -319,7 +311,6 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/pressure_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -335,14 +326,13 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/pressureTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="1dp"
                                 android:text="@string/pressure"
-                                android:textColor="@color/secondary_text" />
+                                android:textColor="?attr/cardTextBottomColor" />
 
                             <TextView
                                 android:id="@+id/pressureText"
@@ -351,7 +341,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="4dp"
-                                android:textColor="@color/secondary_text"
+                                android:textColor="?attr/cardTextBottomColor"
                                 android:textSize="25sp" />
                         </LinearLayout>
 

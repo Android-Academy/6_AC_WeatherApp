@@ -3,9 +3,7 @@ package com.vullnetlimani.weatherapp.Activity;
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -44,6 +42,8 @@ import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.color.MaterialColors;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -52,11 +52,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.vullnetlimani.weatherapp.Database.DatabaseHelper;
 import com.vullnetlimani.weatherapp.Database.LoadDatabase;
 import com.vullnetlimani.weatherapp.Helper.AsyncHelper;
-import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.Helper.GPSTracker;
 import com.vullnetlimani.weatherapp.Helper.MySharedPreferences;
 import com.vullnetlimani.weatherapp.Helper.WeatherHelper;
 import com.vullnetlimani.weatherapp.R;
+import com.vullnetlimani.weatherapp.Utils.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -75,14 +75,12 @@ public class MainActivity extends BaseActivity {
     static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
-    public boolean downloadSuccessfully = false;
     public boolean gpsFounded = false;
     TextView actual_weather, current_time, current_location, desc, temperature, feels_like, wind_speed, pressure, humidity, tomorrowStatTextView, tomorrow_desc, tomorrow_temp;
     TextView error_code_textView;
     ImageView todayStat_ImageView, tomorrowStat_ImageView;
     NestedScrollView scroll_view, error_scrollView;
     CardView card_view, card_tomorrow;
-    SwipeRefreshLayout mSwipeRefreshLayout;
     String city, language, unit;
     String latitude, longitude;
     boolean coordinate_search;
@@ -136,9 +134,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setupTheme();
+        setTheme(Theme);
+
         setContentView(R.layout.activity_main);
 
         LoadViews();
+        setupSwipe();
         setupToolbar();
         setSearchToolbar();
         init();
@@ -246,11 +249,11 @@ public class MainActivity extends BaseActivity {
 
     private void snackBarMessage(String message) {
         Snackbar snackbar = Snackbar.make(coordinateLayout, message, Snackbar.LENGTH_SHORT)
-                .setBackgroundTint(getResources().getColor(R.color.primary_dark))
+                .setBackgroundTint(MaterialColors.getColor(this, R.attr.floatButtonColor, Color.WHITE))
                 .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
                 .setAnchorView(auto_locate_fab)
-                .setActionTextColor(Color.WHITE)
-                .setTextColor(Color.WHITE);
+                .setActionTextColor(MaterialColors.getColor(this, R.attr.floatButtonRippleColor, Color.WHITE))
+                .setTextColor(MaterialColors.getColor(this, R.attr.floatButtonRippleColor, Color.WHITE));
         snackbar.show();
     }
 
@@ -275,7 +278,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void permissionBlocked() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
         dialog.setTitle(R.string.alert_title_permission_blocked);
         dialog.setMessage(R.string.alert_message_permission_blocked);
         dialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -295,9 +298,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        AlertDialog alertDialog = dialog.create();
-        alertDialog.setCancelable(false);
-        alertDialog.show();
+        dialog.show();
     }
 
     private void extractDataFromServer(String yourCurrentRequest, String yourTomorrowRequest) {
@@ -411,7 +412,7 @@ public class MainActivity extends BaseActivity {
 
     private void showGpsSettings() {
 
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder alertDialog = new MaterialAlertDialogBuilder(this);
         alertDialog.setTitle(R.string.allert_title_gps);
         alertDialog.setMessage(R.string.alert_message_gps);
         alertDialog.setCancelable(false);
@@ -499,7 +500,7 @@ public class MainActivity extends BaseActivity {
         tomorrowStat_ImageView = findViewById(R.id.detail_main_icon);
 
         actual_weather = findViewById(R.id.actual_weather);
-        current_time = findViewById(R.id.current_time);
+        current_time = findViewById(R.id.current_date);
         current_location = findViewById(R.id.current_location);
         desc = findViewById(R.id.desc);
         temperature = findViewById(R.id.temperature);
@@ -535,8 +536,6 @@ public class MainActivity extends BaseActivity {
                 mSwipeRefreshLayout.setEnabled(scrollY == 0);
             }
         });
-
-        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary));
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -593,6 +592,7 @@ public class MainActivity extends BaseActivity {
             );
         }
 
+        mSwipeRefreshLayout.setRefreshing(true);
     }
 
     public void launchDetails(View view) {
@@ -696,15 +696,15 @@ public class MainActivity extends BaseActivity {
 
         MySharedPreferences.setNormalPref_Integer(MainActivity.this, Constants.today_card_current_color_key, mWeatherHelper.getWeatherColor());
 
-        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-        colorAnimation.setDuration(250);
-        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                card_view.setCardBackgroundColor((int) animation.getAnimatedValue());
-            }
-        });
-        colorAnimation.start();
+//        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+//        colorAnimation.setDuration(250);
+//        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                card_view.setCardBackgroundColor((int) animation.getAnimatedValue());
+//            }
+//        });
+//        colorAnimation.start();
     }
 
     private void UpdateTomorrowData() {
@@ -760,15 +760,15 @@ public class MainActivity extends BaseActivity {
 
         MySharedPreferences.setNormalPref_Integer(MainActivity.this, Constants.tomorrow_card_current_color_key, mWeatherHelper.getWeatherColor());
 
-        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-        colorAnimation.setDuration(250);
-        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                card_tomorrow.setCardBackgroundColor((int) animation.getAnimatedValue());
-            }
-        });
-        colorAnimation.start();
+//        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+//        colorAnimation.setDuration(250);
+//        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                card_tomorrow.setCardBackgroundColor((int) animation.getAnimatedValue());
+//            }
+//        });
+//        colorAnimation.start();
     }
 
     @Override
@@ -788,7 +788,7 @@ public class MainActivity extends BaseActivity {
 
     private void setSearchToolbar() {
 
-        mFrameLayout.setBackgroundColor(getResources().getColor(R.color.primary));
+        mFrameLayout.setBackgroundColor(MaterialColors.getColor(this, R.attr.searchToolbarColor, Color.BLACK));
 
         searchToolbar = findViewById(R.id.searchToolbar);
 
@@ -828,9 +828,9 @@ public class MainActivity extends BaseActivity {
 
     private void initSearchView() {
 
-        searchToolbar.setBackgroundColor(Color.WHITE);
-        searchToolbar.setTitleTextColor(Color.DKGRAY);
-        searchToolbar.setCollapseIcon(R.drawable.ic_back);
+        searchToolbar.setBackgroundColor(MaterialColors.getColor(this, R.attr.floatButtonRippleColor, Color.WHITE));
+        searchToolbar.setTitleTextColor(MaterialColors.getColor(this, R.attr.searchToolbarText, Color.WHITE));
+        searchToolbar.setCollapseIcon(R.drawable.ic_back_search);
 
         MenuItem search = search_menu.findItem(R.id.action_filter_search);
         search.setIcon(R.drawable.ic_search);
@@ -841,14 +841,14 @@ public class MainActivity extends BaseActivity {
 
         EditText textSearch = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
         textSearch.setHint(R.string.search);
-        textSearch.setHintTextColor(Color.GRAY);
-        textSearch.setTextColor(Color.DKGRAY);
+        textSearch.setHintTextColor(MaterialColors.getColor(this, R.attr.searchToolbarIconColor, Color.WHITE));
+        textSearch.setTextColor(MaterialColors.getColor(this, R.attr.searchToolbarText, Color.WHITE));
 
         //Cursori venojet
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             GradientDrawable drawable = (GradientDrawable) ResourcesCompat.getDrawable(getResources(), R.drawable.cursor, null);
             if (drawable != null) {
-                drawable.setColor(ContextCompat.getColor(this, R.color.primary));
+                drawable.setColor(MaterialColors.getColor(this, R.attr.colorAccent, Color.BLACK));
             }
             textSearch.setTextCursorDrawable(drawable);
         }
