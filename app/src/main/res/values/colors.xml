@@ -13,6 +13,10 @@
     <color name="red_primary_dark">#851108</color>
     <color name="red_accent">#009688</color>
 
+    <color name="purple_primary">#673AB7</color>
+    <color name="purple_primary_dark">#4527A0</color>
+    <color name="purple_accent">#00BCD4</color>
+
     <color name="dark_primary">#424242</color>
     <color name="dark_primary_dark">#212121</color>
     <color name="dark_accent">#F48FB1</color>

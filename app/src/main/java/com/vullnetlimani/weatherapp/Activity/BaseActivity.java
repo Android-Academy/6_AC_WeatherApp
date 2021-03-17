@@ -56,7 +56,10 @@ public class BaseActivity extends AppCompatActivity {
             case 2:
                 Theme = R.style.RedTheme;
                 break;
-            case 4:
+            case 3:
+                Theme = R.style.PurpleTheme;
+                break;
+            case 5:
                 Theme = R.style.DarkTheme;
                 break;
         }
@@ -78,7 +81,6 @@ public class BaseActivity extends AppCompatActivity {
         mSwipeRefreshLayout.setColorSchemeColors(MaterialColors.getColor(this, R.attr.swipeRefreshProgressColor, Color.BLACK));
         mSwipeRefreshLayout.setProgressBackgroundColorSchemeColor(MaterialColors.getColor(this, R.attr.swipeRefreshBackgroundColor, Color.BLACK));
     }
-
 
     public void setVisibilityToolbar(boolean isVisible) {
         if (isVisible)

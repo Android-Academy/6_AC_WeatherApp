@@ -90,6 +90,7 @@
     <string name="bluetheme">Blue Theme</string>
     <string name="darktheme">Dark Theme</string>
     <string name="redtheme">Red Theme</string>
+    <string name="purpletheme">Purple Theme</string>
 
     <!-- Preference Titles -->
     <string name="kmh">km/h, °C</string>

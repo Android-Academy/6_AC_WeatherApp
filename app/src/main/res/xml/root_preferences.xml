@@ -43,11 +43,10 @@
     <PreferenceCategory app:title="@string/theme">
 
         <ListPreference
-            app:defaultValue="3"
+            app:defaultValue="4"
             app:entries="@array/themes"
             app:entryValues="@array/themeValues"
             app:key="list_theme_key"
-
             app:title="@string/chose_theme" />
     </PreferenceCategory>
 

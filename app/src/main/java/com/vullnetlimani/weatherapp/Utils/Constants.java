@@ -8,7 +8,7 @@ public class Constants {
     public static final String DETAIL_COMING_ACT_KEY = "DetailComingActKey";
     public static final String DAILY_FORECAST = "DailyForecast";
     public static final String HOURLY_FORECAST = "HourlyForecast";
-    public static final String THEME_DEFAULT_VALUE = "3";
+    public static final String THEME_DEFAULT_VALUE = "4";
     public static String list_unit_code_key="list_unit_code_key";
     public static final String list_theme_key = "list_theme_key";
 

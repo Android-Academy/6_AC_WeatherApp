@@ -3,7 +3,7 @@
     android:id="@+id/widget_main_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/blue_primary"
+    android:background="?attr/colorPrimary"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.6_AC_WeatherApp.AppWidgetContainer">
 

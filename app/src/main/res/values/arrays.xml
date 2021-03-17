@@ -506,6 +506,7 @@
     <string-array name="themes">
         <item>@string/greentheme</item>
         <item>@string/redtheme</item>
+        <item>@string/purpletheme</item>
         <item>@string/bluetheme</item>
         <item>@string/darktheme</item>
     </string-array>
@@ -515,6 +516,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
 </resources>
