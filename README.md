@@ -1,7 +1,7 @@
 The Weather App
 ==============
 
-<p>This app is built as the 6 projects or the 2 major ones on this project we have learned how to communicate with servers how to use JSON and much more stuff like GPS sensors etc.</p>
+<p>This app is built as the 6 projects in row or the 2 major one, on this project we have learned how to communicate with servers how to use JSON and much more stuff like GPS sensors etc.</p>
 
 <table>
   <tr>
