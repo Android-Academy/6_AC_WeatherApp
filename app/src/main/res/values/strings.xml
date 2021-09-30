@@ -45,7 +45,7 @@
     <string name="setFeelsLikeC">Feels Like: %.1f°C</string>
     <string name="setFeelsLikeF">Feels Like: %.1f°F</string>
 
-    <string name="setKMH">%.1f km/h</string>
+    <string name="setKMH">%.1f m/s</string>
     <string name="setMPH">%.1f mph</string>
 
     <string name="setHUM">%1d %%</string>
@@ -56,7 +56,7 @@
 
     <string name="setHUMIDITY">Humidity: %1d %%</string>
     <string name="setPRESSURE">Pressure: %.1f hPa</string>
-    <string name="setKMH_SPEED">WindL: %.1f km/h</string>
+    <string name="setKMH_SPEED">WindL: %.1f m/s</string>
     <string name="setMPH_SPEED">WindL: %.1f mph</string>
     <string name="setLastCheck">Last check: %s</string>
 
@@ -93,7 +93,7 @@
     <string name="purpletheme">Purple Theme</string>
 
     <!-- Preference Titles -->
-    <string name="kmh">km/h, °C</string>
+    <string name="kmh">m/s, °C</string>
     <string name="mph">mph, °F</string>
 
     <string name="main">Main</string>
