@@ -32,6 +32,9 @@ import com.vullnetlimani.weatherapp.R;
 import com.vullnetlimani.weatherapp.Utils.Constants;
 import com.vullnetlimani.weatherapp.about.About;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BaseActivity extends AppCompatActivity {
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
@@ -145,13 +148,7 @@ public class BaseActivity extends AppCompatActivity {
         nav_image = header.findViewById(R.id.nav_image);
         city_id = header.findViewById(R.id.city_id);
 
-        final int HOME = R.id.home;
-        final int DAILY_WEATHER = R.id.daily_weather;
-        final int HOURLY_WEATHER = R.id.hourly_weather;
-        final int HELP = R.id.help;
-        final int SETTINGS = R.id.settings;
-        final int CHANGELOG = R.id.changelog;
-        final int ABOUT = R.id.about;
+        final Map<Integer, Runnable> navigationActions = getIntegerRunnableMap();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -161,81 +158,79 @@ public class BaseActivity extends AppCompatActivity {
 
                 drawerLayout.closeDrawer(GravityCompat.START);
 
-                switch (id) {
+                // Check if there is a runnable for the selected item and execute it
+                Runnable action = navigationActions.get(id);
 
-                    case HOME:
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            }
-                        }, 250);
-                        return true;
-
-                    case DAILY_WEATHER:
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(getApplicationContext(), DailyForecastActivity.class));
-                            }
-                        }, 250);
-                        return true;
-                    case HOURLY_WEATHER:
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(getApplicationContext(), HourlyForecastActivity.class));
-                            }
-                        }, 250);
-                        return true;
-                    case HELP:
-
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                Uri data = Uri.parse(getString(R.string.help_uri));
-                                intent.setData(data);
-                                startActivity(intent);
-                            }
-                        }, 250);
-
-                        return true;
-
-                    case SETTINGS:
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                            }
-                        }, 250);
-                        return true;
-
-                    case CHANGELOG:
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                showChangeLog();
-                            }
-                        }, 250);
-                        return true;
-
-                    case ABOUT:
-                        mHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(getApplicationContext(), About.class));
-                            }
-                        }, 250);
-                        return true;
-
+                if (action != null) {
+                    mHandler.postDelayed(action, 250);
+                    return true;
                 }
+                return false;
+            }
+        });
+    }
 
-                return true;
+    @NonNull
+    private Map<Integer, Runnable> getIntegerRunnableMap() {
+
+        final int HOME = R.id.home;
+        final int DAILY_WEATHER = R.id.daily_weather;
+        final int HOURLY_WEATHER = R.id.hourly_weather;
+        final int HELP = R.id.help;
+        final int SETTINGS = R.id.settings;
+        final int CHANGELOG = R.id.changelog;
+        final int ABOUT = R.id.about;
+
+// Create a map of item IDs to corresponding actions
+        final Map<Integer, Runnable> navigationActions = new HashMap<>();
+        navigationActions.put(HOME, new Runnable() {
+            @Override
+            public void run() {
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+        navigationActions.put(DAILY_WEATHER, new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getApplicationContext(), DailyForecastActivity.class));
+            }
+        });
+        navigationActions.put(HOURLY_WEATHER, new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getApplicationContext(), HourlyForecastActivity.class));
+            }
+        });
+        navigationActions.put(HELP, new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Uri data = Uri.parse(getString(R.string.help_uri));
+                intent.setData(data);
+                startActivity(intent);
+            }
+        });
+        navigationActions.put(SETTINGS, new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+            }
+        });
+        navigationActions.put(CHANGELOG, new Runnable() {
+            @Override
+            public void run() {
+                showChangeLog();
+            }
+        });
+        navigationActions.put(ABOUT, new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getApplicationContext(), About.class));
             }
         });
 
+        return navigationActions;
     }
 
     private void showChangeLog() {

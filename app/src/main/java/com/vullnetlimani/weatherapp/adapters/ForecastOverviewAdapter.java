@@ -57,7 +57,7 @@ public class ForecastOverviewAdapter extends RecyclerView.Adapter<ForecastOvervi
 
     @SuppressLint("SimpleDateFormat")
     @Override
-    public void onBindViewHolder(@NonNull ForecastOverviewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ForecastOverviewAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         weather_day = days.get(position);
 

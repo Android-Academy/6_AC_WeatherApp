@@ -3,17 +3,21 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+
+    namespace = "com.vullnetlimani.weatherapp"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId "com.vullnetlimani.weatherapp"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdk 21
+        targetSdk 34
         versionCode 1
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     buildTypes {
@@ -22,9 +26,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 

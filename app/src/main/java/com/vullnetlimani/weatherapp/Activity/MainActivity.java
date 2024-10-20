@@ -4,6 +4,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -117,17 +118,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.action_search:
-
-                circleReveal(true, true);
-
-                item_search.expandActionView();
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_search) {
+            circleReveal(true, true);
+            item_search.expandActionView();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -848,7 +844,7 @@ public class MainActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             GradientDrawable drawable = (GradientDrawable) ResourcesCompat.getDrawable(getResources(), R.drawable.cursor, null);
             if (drawable != null) {
-                drawable.setColor(MaterialColors.getColor(this, R.attr.colorAccent, Color.BLACK));
+                drawable.setColor(MaterialColors.getColor(this, androidx.appcompat.R.attr.colorAccent, Color.BLACK));
             }
             textSearch.setTextCursorDrawable(drawable);
         }
@@ -890,7 +886,7 @@ public class MainActivity extends BaseActivity {
                     extra_info.setText(cursor.getString(columnIndex));
 
                     String extra_info_text = cursor.getString(columnIndex);
-                    String check_Country = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_ISO2));
+                    @SuppressLint("Range") String check_Country = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_ISO2));
 
                     // Log.d(LOG_TAG, "Country - " + check_Country);
 
@@ -926,9 +922,9 @@ public class MainActivity extends BaseActivity {
                 Cursor cursor = cursorAdapter.getCursor();
                 cursor.moveToPosition(position);
 
-                String clicked_city = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_CITY));
-                String clicked_lat = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_LAT));
-                String clicked_lng = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_LNG));
+                @SuppressLint("Range") String clicked_city = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_CITY));
+                @SuppressLint("Range") String clicked_lat = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_LAT));
+                @SuppressLint("Range") String clicked_lng = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATABASE_LNG));
 
                 searchView.setQuery(clicked_city, false);
 
@@ -997,10 +993,10 @@ public class MainActivity extends BaseActivity {
 
                 int width = searchToolbar.getWidth();
 
-                width -= (startAnimFrom * getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_material)) - (getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_material) / 2);
+                width -= (startAnimFrom * getResources().getDimensionPixelSize(R.dimen.splashscreen_dimen)) - (getResources().getDimensionPixelSize(R.dimen.splashscreen_dimen) / 2);
 
                 if (containsOverflow)
-                    width -= getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_overflow_material);
+                    width -= getResources().getDimensionPixelSize(R.dimen.splashscreen_dimen);
 
                 int cx = width;
                 int cy = searchToolbar.getHeight() / 2;
